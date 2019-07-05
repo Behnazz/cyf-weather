@@ -2,27 +2,64 @@
   height: 100vh;
   width: 100vw;
   transition: background-color 1s ease-in;
+  background-color: rgb(115, 195, 241);
+  padding-right: 70px;
 }
 
-.app__header, 
 .app__main {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 /*  Search bar */
+.app__header {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #6f9ef5;
+  width: 100%;
+  padding: 30px;
+  align-items: center;
+}
 
+.searchInput {
+  margin-left: 50px;
+  height: 30px;
 
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+  background-color: #6f9ef5;
+  border: 1px solid #85aef8;
+  font-size: 17px;
+  font-weight: bold;
+}
 
+.searchButton {
+  margin-left: 10px;
+  height: 30px;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #3e78e4;
+  border: 1px solid #3e78e4;
+}
+/*main image*/
+.centerImageDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 250px;
+}
 /* Current weather */
-
-
-
-

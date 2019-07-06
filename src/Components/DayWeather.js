@@ -1,72 +1,49 @@
 import React from "react";
+import "./dayWeather.css";
+import clear from "../img/weather-icons/clear.svg";
+import storm from "../img/weather-icons/storm.svg";
+import drizzle from "../img/weather-icons/drizzle.svg";
+import fog from "../img/weather-icons/fog.svg";
+import mostlyCloudy from "../img/weather-icons/mostlyCloudy.svg";
+import partlyCloudy from "../img/weather-icons/partlyCloudy.svg";
+import rain from "../img/weather-icons/rain.svg";
+import snow from "../img/weather-icons/snow.svg";
+import unknown from "../img/weather-icons/unknown.svg";
 
-const DayWeather = () => {
+const DayWeather = props => {
+  const { weatherData } = props;
   return (
     <div>
       <div className="weekdays">
-        <div className="days">
-          <h4 className="time-temp">03:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01-partly-cloudy-t9954_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">8 C</h4>
-        </div>
-        <div className="days">
-          <h4 className="time-temp">06:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01-partly-cloudy-t9954_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">9 C</h4>
-        </div>
-        <div className="days">
-          <h4 className="time-temp">09:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01sunny-t9947_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">14 C</h4>
-        </div>
-        <div className="days">
-          <h4 className="time-temp">12:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01sunny-t9947_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">17 C</h4>
-        </div>
-        <div className="days">
-          <h4 className="time-temp">15:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01sunny-t9947_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">18 C</h4>
-        </div>
-        <div className="days">
-          <h4 className="time-temp">18:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01sunny-t9947_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">16 C</h4>
-        </div>
-        <div className="days">
-          <h4 className="time-temp">21:00</h4>
-          <img
-            className="button-img"
-            src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011482/frames/500x354_7x5_1p/Weather_Icons/01-partly-cloudy-t9954_transp.png"
-            alt="cloud"
-          />
-          <h4 className="time-temp">13 C</h4>
-        </div>
+        {weatherData.map(item => (
+          <div key= {item.dt} className="days">
+            <h4 className="time-temp">{item.dt_txt.split(" ")[1]}</h4>
+            <img
+              className="button-img"
+              src={
+                weatherData !== "" && item.weather[0].id === 800
+                  ? clear
+                  : item.weather[0].id < 300
+                  ? storm
+                  : item.weather[0].id >= 300 && item.weather[0].id <= 499
+                  ? drizzle
+                  : item.weather[0].id >= 500 && item.weather[0].id <= 599
+                  ? rain
+                  : item.weather[0].id >= 600 && item.weather[0].id <= 699
+                  ? snow
+                  : item.weather[0].id >= 700 && item.weather[0].id <= 799
+                  ? fog
+                  : item.weather[0].id === 801
+                  ? partlyCloudy
+                  : item.weather[0].id > 801 && item.weather[0].id <= 805
+                  ? mostlyCloudy
+                  : unknown
+              }
+              alt="cloud"
+            />
+            <h4 className="time-temp">{Math.round(item.main.temp)} &#8451;</h4>
+          </div>
+        ))}
       </div>
     </div>
   );

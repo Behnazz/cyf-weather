@@ -1,0 +1,36 @@
+.app__header {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #6f9ef5;
+  width: 100%;
+  padding: 35px;
+  align-items: center;
+  width: 100%;
+}
+
+.searchInput {
+  margin-left: 50px;
+  height: 30px;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+  background-color: #6f9ef5;
+  border: 1px solid #85aef8;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.searchButton {
+  margin-left: 10px;
+  height: 30px;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #3e78e4;
+  border: 1px solid #3e78e4;
+}

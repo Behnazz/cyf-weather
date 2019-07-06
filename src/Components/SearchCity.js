@@ -1,15 +1,19 @@
 import React from "react";
+import "./searchCity.css";
 
-const SearchCity = () => {
+const SearchCity = props => {
   return (
     <div className="app__header">
       <input
         className="searchInput"
         type="text"
         placeholder="city"
-        name="city"
+        value={props.inputValue}
+        onChange={props.inputChange}
       />
-      <button className="searchButton">Find Weather</button>
+      <button className="searchButton" onClick={props.search}>
+        Find Weather
+      </button>
     </div>
   );
 };

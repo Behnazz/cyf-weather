@@ -1,0 +1,19 @@
+.weekdays {
+  display: flex;
+
+  flex-direction: row;
+}
+
+.days {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.time-temp {
+  font-size: 15px;
+  font-weight: 200;
+}
+.button-img {
+  width: 70px;
+}
